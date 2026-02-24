@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">Секции конференции</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<div th:replace="~{fragments/navigation :: navigation}"></div>
+
+<main class="container">
+    <h1 th:text="${title}">Секции конференции</h1>
+
+    <p class="conference-subtitle">
+        XII всероссийской студенческой научной конференции
+        «Студент: наука, профессия, жизнь» (21–26 апреля 2025 г.)
+    </p>
+
+    <div class="sections-table-container">
+        <table class="sections-table">
+            <thead>
+            <tr>
+                <th>№</th>
+                <th>Наименование секции</th>
+                <th>Дата</th>
+                <th>Время</th>
+                <th>Ауд.</th>
+                <th>Научный руководитель</th>
+                <th>Почта</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="section : ${sections}">
+                <td th:text="${section.number}">1</td>
+                <td th:text="${section.name}">Название</td>
+                <td th:text="${#temporals.format(section.date, 'dd.MM.yyyy')}">22.04.2025</td>
+                <td th:text="${#temporals.format(section.time, 'HH:mm')}">15:40</td>
+                <td th:text="${section.room}">1-355</td>
+                <td th:text="${section.supervisor}">ФИО</td>
+                <td><a th:href="'mailto:' + ${section.email}" th:text="${section.email}">email</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

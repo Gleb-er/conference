@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">Информация для кураторов</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<div th:replace="~{fragments/navigation :: navigation}"></div>
+
+<main class="container">
+    <h1 th:text="${title}">Информация для кураторов</h1>
+
+    <div class="curator-info">
+        <section class="info-section">
+            <h2>Основная информация</h2>
+            <p th:text="${conferenceInfo}"></p>
+
+            <p><strong>Внутренний ресурс:</strong> \\srv-files\Ресурсы\Информация\Научные конференции\Для Студентов\2026</p>
+            <p><strong>Сайт:</strong> https://www.omgups.ru/science/onk-i-pia/vnutrennie-konferentsii/student-nauka-professiya-zhizn/</p>
+        </section>
+
+        <section class="info-section">
+            <h2>Контрольные даты</h2>
+            <pre class="deadlines-pre" th:text="${deadlines}"></pre>
+
+            <p><strong>Форма для информации:</strong> https://forms.yandex.ru/u/6996c525eb61464e6279093f</p>
+            <p><strong>Протоколы секций:</strong> https://forms.yandex.ru/u/6996ccc749af4790364c8185</p>
+        </section>
+
+        <section class="info-section">
+            <h2>Работа со статьями</h2>
+            <p>Статьи отправлять на <strong>nti.omgups@mail.ru</strong></p>
+            <p>Требования к файлам:</p>
+            <ul>
+                <li>Статья_Фамилия И.О. (Word)</li>
+                <li>Отчет_Фамилия И.О. (JPEG, PDF) - не менее 70%</li>
+                <li>Рецензия_Фамилия И.О. (JPEG, PDF)</li>
+            </ul>
+        </section>
+
+        <section class="info-section">
+            <h2>Сертификаты и дипломы</h2>
+            <p><strong>Ответственный:</strong> Ермачков Глеб Романович</p>
+            <p>Сертификаты - электронные, дипломы - печатные</p>
+        </section>
+    </div>
+
+    <div class="logout-section">
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" class="button secondary">Выйти</button>
+        </form>
+    </div>
+</main>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

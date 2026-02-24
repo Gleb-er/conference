@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<nav th:fragment="navigation">
+    <div class="nav-container">
+        <ul class="nav-menu">
+            <li><a th:href="@{/}">Главная</a></li>
+            <li><a th:href="@{/sections}">Секции</a></li>
+            <li><a th:href="@{/requirements}">Требования к статьям</a></li>
+            <li><a th:href="@{/curator/login}">Кураторам</a></li>
+        </ul>
+    </div>
+</nav>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">Конференция</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<div th:replace="~{fragments/navigation :: navigation}"></div>
+
+<main class="container">
+    <h1 th:text="${title}">XIII Всероссийская студенческая научная конференция</h1>
+
+    <div class="conference-info">
+        <p class="conference-dates" th:text="'📅 ' + ${conferenceDate}">20–25 апреля 2026 года</p>
+        <p class="university-name" th:text="'🏛️ ' + ${university}">ОмГУПС</p>
+    </div>
+
+    <section class="about-conference">
+        <h2>О конференции</h2>
+        <p>
+            Приглашаем студентов учреждений высшего и среднего профессионального образования
+            принять участие в студенческой научной конференции.
+        </p>
+        <p>
+            Каждый участник может представить не более двух докладов.
+            Формат участия: очно-дистанционный.
+        </p>
+        <p>
+            <strong>Публикация бесплатная!</strong> Сборнику присваивается ISBN,
+            материалы размещаются в РИНЦ.
+        </p>
+    </section>
+
+    <section class="registration-links">
+        <h2>Регистрация</h2>
+        <div class="buttons">
+            <a href="https://forms.yandex.ru/u/6996babf90290238ab203711"
+               class="button" target="_blank">Заявка на участие</a>
+        </div>
+    </section>
+
+    <section class="deadlines">
+        <h2>Важные даты</h2>
+        <ul>
+            <li><strong>8 апреля 2026 г.</strong> – окончание приема заявок</li>
+            <li><strong>9-16 апреля 2026 г.</strong> – формирование программы конференции</li>
+            <li><strong>19 апреля 2026 г.</strong> – окончание приема материалов статей</li>
+            <li><strong>20-25 апреля 2026 г.</strong> – очно-дистанционная работа секций</li>
+            <li><strong>до 30 июня 2026 г.</strong> – издание сборника трудов</li>
+        </ul>
+    </section>
+
+    <section class="contacts">
+        <h2>Контакты</h2>
+        <p><strong>Ермачков Глеб Романович</strong> – gl.ermachkov@gmail.com</p>
+        <p><strong>Евсеев Алексей Анатольевич</strong> – nti.omgups@mail.ru</p>
+    </section>
+</main>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>
